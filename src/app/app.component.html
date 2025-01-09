@@ -3,9 +3,14 @@
 <main>
   <div id="users">
      @for (user of users; track $index) {
-      <app-user [user]="user" ></app-user>
+      <app-user [user]="user" (select)="onSelectedUser($event)" ></app-user>
      }
   </div>
+    @if (selectedUser) {
+      <app-tasks [name]="selectedUser.name"></app-tasks>
+    }@else {
+      <p id="fallback">Select User</p>
+    }
     
 </main>
 

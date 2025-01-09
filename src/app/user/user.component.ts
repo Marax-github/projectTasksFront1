@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from './user.model';
 import { UserService } from './user.service';
 
@@ -12,6 +12,7 @@ import { UserService } from './user.service';
 export class UserComponent implements OnInit {
 
   @Input({required:true}) user!: User;
+  @Output() select = new EventEmitter();
   imgPath!: string;
 
   constructor(private userService: UserService){}
@@ -20,5 +21,10 @@ export class UserComponent implements OnInit {
     this.userService.setUser(this.user)
     this.imgPath = this.userService.imgPath
   }
+
+  onSelectedUser(){
+    this.select.emit(this.user.id)
+  }
+
 
 }
