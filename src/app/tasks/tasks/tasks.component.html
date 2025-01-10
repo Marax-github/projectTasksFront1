@@ -12,7 +12,9 @@
     </header>
     
     <ul>
-        
+        @for (task of getUserTasks(); track $index) {
+            <app-task [task]="task" ></app-task>
+        }
     </ul>
 
 </section>

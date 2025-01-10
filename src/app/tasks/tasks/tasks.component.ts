@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { UserService } from '../../user/user.service';
+import { TaskService } from '../tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -11,10 +11,19 @@ import { UserService } from '../../user/user.service';
 export class TasksComponent {
 
   @Input({required:true}) name!: string;
+  @Input({required:true}) userId!: string;
 
 
-  constructor(private userService: UserService){}
+  constructor(private taskService: TaskService){}
 
+
+  // getTasks(){
+  //   return this.taskService.tasks
+  // }
+
+    getUserTasks(){
+       return this.taskService.getUserTask(this.userId)
+    }
   
 
 }

@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 @Injectable({providedIn: "root"})
 export class TaskService {
 
+  
+
     tasks = [
         {
           id: 't1',
@@ -28,4 +30,8 @@ export class TaskService {
           dueDate: '2024-06-15',
         },
       ]
+
+      getUserTask(id: string){
+        return this.tasks.filter((task) => task.userId === id )
+      }
 }
