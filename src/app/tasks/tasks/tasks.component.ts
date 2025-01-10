@@ -32,4 +32,8 @@ export class TasksComponent {
     cancelButton(){
       this.isAddingTask = false;
     }
+
+    addNewTasks(){
+      this.taskService.addingNewTask
+    }
 }

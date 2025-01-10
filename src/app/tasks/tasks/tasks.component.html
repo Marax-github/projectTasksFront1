@@ -1,5 +1,5 @@
 @if (isAddingTask) {
-    <app-new-task (cancel)="cancelButton()" ></app-new-task>
+    <app-new-task (cancel)="cancelButton()" [userId]="userId" ></app-new-task>
 }
 <section id="tasks" >
 
