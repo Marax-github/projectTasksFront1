@@ -34,4 +34,8 @@ export class TaskService {
       getUserTask(id: string){
         return this.tasks.filter((task) => task.userId === id )
       }
+
+      completeTaskButton(id: string){
+        this.tasks = this.tasks.filter((task) => task.id !== id)
+      }
 }

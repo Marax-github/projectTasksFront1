@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Task } from '../tasks.model';
+import { TaskService } from '../tasks.service';
+import { User } from '../../user/user.model';
 
 @Component({
   selector: 'app-task',
@@ -11,8 +13,12 @@ import { Task } from '../tasks.model';
 export class TaskComponent {
 
   @Input({required:true}) task!: Task;
+  
 
-  completeButton(){
-    
+  constructor(private taskService:TaskService){}
+
+  completeTaskButton(){
+    this.taskService.completeTaskButton(this.task.id)
   }
+
 }

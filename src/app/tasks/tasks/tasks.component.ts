@@ -12,6 +12,7 @@ export class TasksComponent {
 
   @Input({required:true}) name!: string;
   @Input({required:true}) userId!: string;
+  isAddingTask = false;
 
 
   constructor(private taskService: TaskService){}
@@ -24,6 +25,11 @@ export class TasksComponent {
     getUserTasks(){
        return this.taskService.getUserTask(this.userId)
     }
-  
-
+    
+    addTask(){
+      this.isAddingTask = true;
+    }
+    cancelButton(){
+      this.isAddingTask = false;
+    }
 }
